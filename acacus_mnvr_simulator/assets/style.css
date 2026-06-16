@@ -1,0 +1,140 @@
+/* Acacus MNVR Simulator — presentation theme
+   Palette: deep navy (#1F3A5F) authority, teal (#1B998B) for the absorbed view,
+   amber (#E8A33D) for provisional/caution, on a calm off-white canvas. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.stApp {
+    background: #F7F8FB;
+}
+
+/* Force readable body text in the main content area, regardless of the
+   browser/OS dark-mode setting. The cards set their own colours explicitly;
+   this catches the markdown prose, list items, captions and labels. */
+section[data-testid="stMain"] {
+    color: #1A2233;
+}
+section[data-testid="stMain"] p,
+section[data-testid="stMain"] li,
+section[data-testid="stMain"] span:not([style*="color"]),
+section[data-testid="stMain"] label,
+.stMarkdown, .stMarkdown p, .stMarkdown li {
+    color: #1A2233 !important;
+}
+section[data-testid="stMain"] blockquote {
+    color: #3A4456 !important;
+    border-left: 3px solid #1B998B;
+    padding-left: 12px;
+}
+/* Captions stay muted but visible */
+section[data-testid="stMain"] [data-testid="stCaptionContainer"],
+section[data-testid="stMain"] small {
+    color: #5A6478 !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #FFFFFF;
+    border-right: 1px solid #E6E9EF;
+}
+
+/* Tighten default block padding for a denser dashboard */
+.block-container {
+    padding-top: 2.2rem;
+    padding-bottom: 2.5rem;
+    max-width: 1400px;
+}
+
+/* Radio nav as pill list */
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    padding: 7px 10px;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    transition: background 0.15s ease;
+    font-weight: 500;
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: #F0F3F8;
+}
+
+/* Headings */
+h1, h2, h3, h4 { color: #1A2233; }
+
+/* Buttons */
+.stButton button, .stDownloadButton button {
+    border-radius: 8px;
+    font-weight: 600;
+    border: 1px solid #1F3A5F22;
+}
+.stDownloadButton button {
+    background: #1F3A5F;
+    color: white;
+    border: none;
+}
+.stDownloadButton button:hover {
+    background: #2E5A88;
+    color: white;
+}
+
+/* Tabs */
+button[data-baseweb="tab"] {
+    font-weight: 600;
+}
+
+/* Plotly container breathing room */
+.js-plotly-plot { border-radius: 10px; }
+
+/* Reduce metric label noise */
+[data-testid="stMetricLabel"] { color: #5A6478; }
+
+/* Sidebar text readable on its white background */
+section[data-testid="stSidebar"], 
+section[data-testid="stSidebar"] * {
+    color: #1A2233;
+}
+section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+    color: #5A6478 !important;
+}
+
+/* ---- Stage 4 polish ---- */
+/* Dataframe header styling */
+[data-testid="stDataFrame"] thead tr th {
+    background: #1F3A5F !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+}
+[data-testid="stDataFrame"] { border-radius: 8px; overflow: hidden; }
+
+/* Radio nav: tighter, with a left accent on the selected item */
+section[data-testid="stSidebar"] div[role="radiogroup"] label[data-checked="true"] {
+    background: #1F3A5F12;
+    border-left: 3px solid #1F3A5F;
+}
+
+/* Expander header */
+[data-testid="stExpander"] summary {
+    font-weight: 600;
+    color: #1F3A5F;
+}
+
+/* Info / warning callouts: softer, on-brand */
+[data-testid="stAlert"] {
+    border-radius: 10px;
+}
+
+/* Tabs: underline the active tab in brand navy */
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #1F3A5F !important;
+    border-bottom-color: #1F3A5F !important;
+}
+
+/* Section spacing rhythm */
+.block-container > div { scroll-margin-top: 1rem; }
+
+/* Plotly modebar: hide clutter for presentation */
+.modebar { opacity: 0.25; transition: opacity 0.2s; }
+.js-plotly-plot:hover .modebar { opacity: 0.8; }
